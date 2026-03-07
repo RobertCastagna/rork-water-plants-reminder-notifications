@@ -1,36 +1,43 @@
 {
   "project_structure": [
-    "package-lock.json",
-    "tsconfig.json",
-    ".gitignore",
+    "credentials.json",
     "eslint.config.js",
+    "package.json",
+    "eas.json",
+    "metro.config.js",
+    "evaluation_context.json",
+    "bun.lock",
+    "package-lock.json",
+    ".gitignore",
+    "app.json",
+    "tsconfig.json",
     "README.md",
     "babel.config.js",
-    "evaluation_context.json",
-    "package.json",
-    "app.json",
-    "bun.lock",
-    "metro.config.js",
-    "contexts/PlantContext.tsx",
-    "utils/scheduling.ts",
-    "constants/colors.ts",
+    ".npmrc",
     "components/PlantCard.tsx",
     "components/EmptyState.tsx",
-    "assets/images/splash-icon.png",
-    "assets/images/favicon.png",
-    "assets/images/icon.png",
+    "certs/distribution.p12",
+    "certs/profile.mobileprovision",
+    "types/plant.ts",
+    "constants/colors.ts",
+    "local/assets/notification_icon.png",
+    "local/assets/notification_sound.wav",
     "assets/images/adaptive-icon.png",
-    "app/add-plant.tsx",
-    "app/+not-found.tsx",
-    "app/modal.tsx",
+    "assets/images/icon.png",
+    "assets/images/favicon.png",
+    "assets/images/splash-icon.png",
+    "contexts/PlantContext.tsx",
+    "utils/scheduling.ts",
     "app/_layout.tsx",
     "app/+native-intent.tsx",
-    "app/plant/[id].tsx",
-    "app/(tabs)/index.tsx",
-    "app/(tabs)/plants.tsx",
-    "app/(tabs)/settings.tsx",
+    "app/+not-found.tsx",
+    "app/add-plant.tsx",
+    "app/modal.tsx",
     "app/(tabs)/_layout.tsx",
-    "types/plant.ts"
+    "app/(tabs)/settings.tsx",
+    "app/(tabs)/plants.tsx",
+    "app/(tabs)/index.tsx",
+    "app/plant/[id].tsx"
   ],
   "config_files": {
     "app.json": {
@@ -127,7 +134,9 @@
         "start": "bunx rork start -p j2a8nwgdagjqyt2q82gnp --tunnel",
         "start-web": "bunx rork start -p j2a8nwgdagjqyt2q82gnp --web --tunnel",
         "start-web-dev": "DEBUG=expo* bunx rork start -p j2a8nwgdagjqyt2q82gnp --web --tunnel",
-        "lint": "expo lint"
+        "lint": "expo lint",
+        "android": "expo run:android",
+        "ios": "expo run:ios"
       },
       "dependencies": {
         "@expo/vector-icons": "^15.0.3",
@@ -176,6 +185,18 @@
         "typescript": "~5.9.2"
       },
       "private": true
+    },
+    "eas.json": {
+      "cli": {
+        "version": ">= 11.0.0",
+        "appVersionSource": "remote"
+      },
+      "build": {
+        "production": {
+          "autoIncrement": true,
+          "credentialsSource": "local"
+        }
+      }
     }
   },
   "dependencies": {
